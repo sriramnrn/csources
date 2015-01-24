@@ -31,7 +31,10 @@ LINKER="gcc"
 COMP_FLAGS="-w -O3 -fno-strict-aliasing$extraBuildArgs"
 LINK_FLAGS=""
 # platform detection
-ucpu=`uname -m`
+ucpu=$ARCH
+if [ -z $ARCH ]; then
+	ucpu=`uname -m`
+fi
 uos=`uname`
 # bin dir detection
 binDir=bin
